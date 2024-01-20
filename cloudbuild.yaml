@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+    - 'build'
+    - '-t'
+    - 'gcr.io/silverscan/github.com/acgray/freqai-santiment:${COMMIT_SHA}'
+    - '.'
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+    - 'push'
+    - 'gcr.io/silverscan/github.com/acgray/freqai-santiment:${COMMIT_SHA}'
+images:
+  - "gcr.io/silverscan/github.com/acgray/freqai-santiment:${COMMIT_SHA}"
